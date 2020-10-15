@@ -9,9 +9,7 @@
     flex-direction: column;
 }
 #game-container {
-    padding: 20px 40px 125px;
     display: grid;
-    background-color: red;
     grid-template-columns: repeat(var(--grid-cols), 1fr);
     grid-template-rows: repeat(var(--grid-rows), 1fr);
 }
