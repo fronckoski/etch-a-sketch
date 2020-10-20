@@ -9,13 +9,18 @@
     flex-direction: column;
 }
 #game-container {
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
+    width: 600px;
+    height: 600px;
     grid-template-columns: repeat(var(--grid-cols), 1fr);
     grid-template-rows: repeat(var(--grid-rows), 1fr);
 }
 .grid-item {
     background-color: lightgray;
-    padding: 15px;
+    border-style: solid;
+    border-width: 0.5;
+    padding: 17px;
     text-align: center;
 }
 .header-buttons {

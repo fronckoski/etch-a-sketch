@@ -6,9 +6,23 @@
   </head>
   <body>
     <div id="container">
-      <h1>Etch-a-Sketch!</h1>
+      <h1>Etch-a-Sketch</h1>
       <span>
         <button id="clear-button" class="header-buttons">Clear Grid</button>
+        <div id="color-dropdown" class="header-buttons">Color: 
+          <select id="color-selector">
+            <option value="black">Black</option>
+            <option value="red">Red</option>
+            <option value="blue">Blue</option>
+          </select>
+        </div>
+
+        <div id="pentype-dropdown" class="header-buttons">Pen Type: 
+          <select id="pentype-selector">
+            <option value="mouseover">Drag</option>
+            <option value="click">Click</option>
+          </select>
+        </div>
       </span>
       <br>
       <div id="game-container">

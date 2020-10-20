@@ -1,4 +1,12 @@
 const mainGrid = document.getElementById("game-container");
+const colorSelection = document.getElementById('color-selector');
+const penSelection = document.getElementById('pentype-selector');
+var colorSel = 'black';
+var penSel = 'mouseover';
+
+//These flags are used to track changes in the drop menus
+var colorChange = 0;
+var penChange = 0;
 
 //Creates grid based on users selection.
 function createGrid(rows, cols) {
@@ -19,7 +27,7 @@ function clearGrid() {
 }
 
 //This function adds event listeners to the divs in the grid box for color change.
-function game(){
+function game(penColor, penType){
     const gridItems = document.getElementsByClassName('grid-item');
     const clearButton = document.getElementById('clear-button');
 
@@ -30,11 +38,26 @@ function game(){
     });
 
     for (i = 0; i < gridItems.length; i++) {
-        gridItems[i].addEventListener('mouseover', e => {
-            e.target.style.backgroundColor = "black";
+        gridItems[i].addEventListener(penType, e => {
+            e.target.style.backgroundColor = penColor;
+            return;
         });
-    }
-}
+    };
+};
+
+//This event listener restarts the game function with the new color selected
+colorSelection.addEventListener('change', e => {
+    colorChange = 1;
+    colorSel = e.target.value;
+    game(colorSel, penSel);
+    colorChange = 0;
+});
+penSelection.addEventListener('change', e => {
+    penChange = 1;
+    penSel = e.target.value;
+    game(colorSel, penSel);
+    colorChange = 0;
+});
 
 createGrid(16, 16);
-game();
+game(colorSel, penSel);
